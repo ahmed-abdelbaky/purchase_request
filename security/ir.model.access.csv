@@ -1,2 +1,4 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_purchase_request_purchase_request,purchase_request.purchase_request,model_purchase_request_purchase_request,base.group_user,1,1,1,1
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_purchase_request_purchase_request","purchase_request_purchase_request","model_purchase_request","user_member",1,1,1,1
+"access1_purchase_request_purchase_request","purchase1_request_purchase_request","model_purchase_product","user_member",1,0,0,0
+"access2_purchase_request_purchase_request","purchase2_request_purchase_request","model_purchase_product","manager_member",1,1,1,1
