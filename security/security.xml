@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <record id="category" model="ir.module.category">
+            <field name="name">Purchase Category</field>
+        </record>
+        <record id ="user_member" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="category"/>
+        </record>
+        <record id="manager_member" model="res.groups">
+            <field name="name">Manager Member</field>
+            <field name="category_id" ref="category"/>
+            <field name="implied_ids" eval="[(4,ref('user_member'))]"/>
+        </record>
+    </data>
+</odoo>
