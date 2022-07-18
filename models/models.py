@@ -13,7 +13,7 @@ class purchase_request(models.Model):
     request_id = fields.Many2one("res.users", string="request by", required=True)
     start_date = fields.Date(default=fields.Date.today)
     end_date = fields.Date()
-    reject_reason = fields.Text(Readonly=True, string="Reject Reason")
+    reject_reason = fields.Text(string="Reject Reason")
     product_ids = fields.One2many('purchase.product', 'request_id', string="Purchase Request Line")
     total_price = fields.Float(string="Total Price", compute="get_total", store=True)
     state = fields.Selection(
