@@ -10,7 +10,7 @@ class purchase_request(models.Model):
     _description = 'purchase_request.purchase_request'
 
     name = fields.Char(required=True)
-    request_id = fields.Many2one("res.users", string="request by", required=True)
+    request_id = fields.Many2one("res.users", string="request by", required=True, default=lambda self: self.env.user)
     start_date = fields.Date(default=fields.Date.today)
     end_date = fields.Date()
     reject_reason = fields.Text(string="Reject Reason")
