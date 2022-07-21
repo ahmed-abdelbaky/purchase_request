@@ -28,7 +28,7 @@
         'security/ir.model.access.csv',
         'views/wizard.xml',
         'views/views.xml',
-        'views/templates.xml',
+        'views/email_templates.xml',
         'views/purchase_product.xml',
 
     ],
