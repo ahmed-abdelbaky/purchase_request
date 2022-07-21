@@ -1,7 +1,3 @@
-from email.policy import default
-
-import required
-
 from odoo import models, fields, api
 
 
@@ -37,6 +33,19 @@ class purchase_request(models.Model):
 
     def set_approve(self):
         self.state = 'approve'
+        template_id = self.env.ref("purchase_request.email_template").id
+        template = self.env['mail.template'].browse(template_id)
+        template.send_mail(self.id, force_send=True)
+        ctx = {
+            'default_model': 'purchase.request',
+            'default_res_id': self.id,
+            'default_use_template': bool(template_id),
+            'default_template_id': template_id,
+            'default_composition_mode': 'comment',
+            'default_email_layout_xmlid': 'mail.mail_notification_borders'
+        }
+        return ctx
+
 
     def set_reject(self):
         self.state = 'reject'
